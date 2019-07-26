@@ -1,0 +1,12 @@
+{
+  "name": "jest-slim-output",
+  "version": "1.0.0",
+  "main": "slim-pipe.js",
+  "repository": "git@github.com:kontrollanten/jest-slim-output.git",
+  "author": "kontrollanten <stambanan@pm.me>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "log-symbols": "^3.0.0"
+  }
+}

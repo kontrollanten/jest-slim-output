@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const colors = require('colors');
+const logSymbols = require('log-symbols');
+
 const sortFailedLast = (a, b) => {
   switch(true) {
     case a.status < b.status:
@@ -33,12 +36,12 @@ stdin.on('data', chunk => {
   if (failures.length) {
     failures
       .forEach(assertion => {
-        console.log(assertion.fullName);
+        console.log(logSymbols.error, assertion.fullName.underline.red);
         assertion.failureMessages
           .map(mess => mess.split('\n').slice(0, 2).join('\n'))
-          .forEach(mess => console.error(mess));
+          .forEach(mess => console.error(mess.red));
       });
   } else {
-    console.log('Hurra! Everything\'s fine. Sleep tight.');
+    console.log(logSymbols.success, 'Hurra! Everything\'s fine. Sleep tight.'.green);
   }
 });
